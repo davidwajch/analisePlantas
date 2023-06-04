@@ -20,4 +20,4 @@ O objetivo deste projeto é utilizar visão computacional e processamento de ima
 
 # Exemplo
 
-[![Vídeo de Demonstração](video-thumbnail.png)](video.mp4)
+[Download do Vídeo](video.mp4)
