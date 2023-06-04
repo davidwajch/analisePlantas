@@ -17,3 +17,7 @@ O objetivo deste projeto é utilizar visão computacional e processamento de ima
 6. **Análise e Tomada de Decisão:** Com base na porcentagem de área afetada, critérios são estabelecidos para avaliar o nível de gravidade da infestação. São exibidas mensagens indicando o nível de gravidade e ações recomendadas, como medidas de controle e tratamento específicas para cada nível identificado.
 
 7. **Visualização dos Resultados:** Os resultados são exibidos na imagem original, destacando as áreas afetadas por meio de contornos. Além disso, são exibidas mensagens indicando a porcentagem de área afetada e as ações recomendadas de acordo com o nível de gravidade.
+
+# Exemplo
+
+[![Vídeo de Demonstração](video-thumbnail.png)](video.mp4)
