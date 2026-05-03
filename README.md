@@ -1,3 +1,31 @@
+# Detecção e monitoramento de pragas em plantas (visão computacional)
+
+O objetivo deste projeto é utilizar visão computacional e processamento de imagem para detectar e monitorar doenças e pragas em plantas.
+
+## Como rodar
+
+**Requisitos:** Python 3, webcam (modo webcam) ou arquivo de imagem/vídeo.
+
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# Linux/macOS: source .venv/bin/activate
+pip install -r requirements.txt
+python codigo.py
+```
+
+Para modo **imagem**, coloque um arquivo `planta.jpg` na pasta do projeto. Para **vídeo**, informe o caminho do MP4 quando solicitado.
+
+## Tecnologias
+
+- Python, OpenCV, NumPy
+
+## Licença
+
+Veja [LICENSE](LICENSE).
+
+---
+
 # Projeto de Detecção e Monitoramento de Doenças e Pragas em Plantas usando Visão Computacional
 
 O objetivo deste projeto é utilizar visão computacional e processamento de imagem para detectar e monitorar doenças e pragas em plantas. Essa solução visa auxiliar os agricultores a identificar rapidamente problemas em suas culturas, permitindo a implementação de medidas adequadas. O sistema fornece informações sobre a porcentagem de área afetada e recomendações para o controle e tratamento.
