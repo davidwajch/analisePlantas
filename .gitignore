@@ -41,11 +41,3 @@ env/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Arquivos grandes de mídia (vídeos de teste)
-*.mp4
-*.avi
-*.mov
-
-# Manter apenas exemplo estático pequeno
-# planta.jpg é mantido como exemplo
