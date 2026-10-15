@@ -1,51 +1,72 @@
-# Detecção e monitoramento de pragas em plantas (visão computacional)
+# Detector de Doenças em Plantas
 
-O objetivo deste projeto é utilizar visão computacional e processamento de imagem para detectar e monitorar doenças e pragas em plantas.
+Sistema de detecção e monitoramento de áreas afetadas por doenças/pragas em plantas usando visão computacional.
 
-## Como rodar
+## Motivação
 
-**Requisitos:** Python 3, webcam (modo webcam) ou arquivo de imagem/vídeo.
+Ferramenta para auxiliar na identificação rápida de problemas em plantas através de análise de imagem, calculando a porcentagem de área afetada e sugerindo ações conforme a gravidade.
+
+## Stack
+
+- Python 3
+- OpenCV (processamento de imagem e detecção de contornos)
+- NumPy (operações com arrays)
+
+## Como Rodar
 
 ```bash
+# Criar e ativar ambiente virtual
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/macOS: source .venv/bin/activate
+source .venv/bin/activate  # Linux/macOS
+# .venv\Scripts\activate   # Windows
+
+# Instalar dependências
 pip install -r requirements.txt
+
+# Executar
 python codigo.py
 ```
 
-Para modo **imagem**, coloque um arquivo `planta.jpg` na pasta do projeto. Para **vídeo**, informe o caminho do MP4 quando solicitado.
+O programa oferece três modos de operação:
+- **webcam**: captura em tempo real da webcam
+- **imagem**: análise de arquivo estático (`planta.jpg`)
+- **video**: análise de arquivo MP4 (informe o caminho quando solicitado)
 
-## Tecnologias
+## Como Funciona
 
-- Python, OpenCV, NumPy
+1. **Captura**: lê imagem da webcam, arquivo estático ou vídeo
+2. **Conversão**: transforma a imagem de RGB para HSV
+3. **Segmentação**: cria máscara para isolar áreas com coloração característica de doença (tons amarelo/marrom)
+4. **Detecção**: identifica contornos das áreas afetadas
+5. **Cálculo**: determina porcentagem de área afetada em relação ao total
+6. **Análise**: classifica gravidade e sugere ações:
+   - **< 10%**: baixa, nenhuma ação imediata necessária
+   - **10-50%**: moderada, ações de controle recomendadas
+   - **> 50%**: alta, tratamento urgente
+
+## Estrutura
+
+```
+.
+├── codigo.py           # código principal
+├── requirements.txt    # dependências Python
+├── planta.jpg          # imagem de exemplo
+└── README.md
+```
+
+## Exemplo
+
+O projeto inclui `planta.jpg` como imagem de teste. Para vídeos, utilize seus próprios arquivos MP4.
+
+## Limitações e Próximos Passos
+
+- Atualmente detecta apenas áreas com base em faixa HSV fixa (tons amarelo/marrom)
+- Possíveis melhorias:
+  - Detecção de múltiplos tipos de doenças/pragas
+  - Classificação usando machine learning
+  - Interface gráfica
+  - Histórico de análises e evolução temporal
 
 ## Licença
 
-Veja [LICENSE](LICENSE).
-
----
-
-# Projeto de Detecção e Monitoramento de Doenças e Pragas em Plantas usando Visão Computacional
-
-O objetivo deste projeto é utilizar visão computacional e processamento de imagem para detectar e monitorar doenças e pragas em plantas. Essa solução visa auxiliar os agricultores a identificar rapidamente problemas em suas culturas, permitindo a implementação de medidas adequadas. O sistema fornece informações sobre a porcentagem de área afetada e recomendações para o controle e tratamento.
-
-## Processo
-
-1. **Captura de Imagens:** O sistema é capaz de capturar imagens por meio de uma webcam, carregar uma imagem estática ou ler um vídeo MP4.
-
-2. **Processamento de Imagem:** As imagens capturadas ou lidas são processadas para identificar as áreas afetadas nas plantas. Primeiramente, é realizada a conversão da imagem do espaço de cores RGB para o espaço de cores HSV, facilitando assim a segmentação das áreas de interesse.
-
-3. **Segmentação das Áreas Afetadas:** Com base nos intervalos de valores definidos para o espaço de cores HSV, é criada uma máscara que destaca as áreas da imagem correspondentes às plantas afetadas.
-
-4. **Detecção de Contornos:** Os contornos das áreas afetadas são identificados utilizando o algoritmo de detecção de contornos do OpenCV. Esses contornos representam as formas das áreas afetadas nas plantas.
-
-5. **Cálculo da Porcentagem de Área Afetada:** Com os contornos obtidos, é possível calcular a porcentagem de área afetada em relação à área total da imagem. Esse cálculo é feito somando as áreas de todos os contornos e dividindo pelo tamanho total da imagem.
-
-6. **Análise e Tomada de Decisão:** Com base na porcentagem de área afetada, critérios são estabelecidos para avaliar o nível de gravidade da infestação. São exibidas mensagens indicando o nível de gravidade e ações recomendadas, como medidas de controle e tratamento específicas para cada nível identificado.
-
-7. **Visualização dos Resultados:** Os resultados são exibidos na imagem original, destacando as áreas afetadas por meio de contornos. Além disso, são exibidas mensagens indicando a porcentagem de área afetada e as ações recomendadas de acordo com o nível de gravidade.
-
-# Exemplo
-
-[Download do Vídeo](video.mp4)
+MIT - veja [LICENSE](LICENSE)

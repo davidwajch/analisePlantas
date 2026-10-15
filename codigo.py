@@ -10,6 +10,7 @@ def processar_imagem(image, img: bool):
 
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
+    # Faixa HSV para detectar tons amarelo/marrom (áreas doentes/mortas)
     low_color = np.array([10, 50, 50])
     up_color = np.array([30, 255, 255])
 
@@ -55,21 +56,21 @@ def processar_imagem(image, img: bool):
 modo = input("Digite 'webcam' para usar a webcam, 'imagem' para usar uma imagem estática ou 'video' para usar um vídeo MP4: ")
 
 if modo.lower() == 'webcam':
-    cap = cv2.VideoCapture(0)  
+    cap = cv2.VideoCapture(0)
     while True:
-        _, frame = cap.read()  
-        processar_imagem(frame, False)  
+        _, frame = cap.read()
+        processar_imagem(frame, False)
 
-        if cv2.waitKey(1) & 0xFF == ord('q'):  
+        if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    cap.release()  
+    cap.release()
     cv2.destroyAllWindows()
 
 elif modo.lower() == 'imagem':
     imagem = cv2.imread('planta.jpg')
 
-    processar_imagem(imagem, True)  
+    processar_imagem(imagem, True)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
